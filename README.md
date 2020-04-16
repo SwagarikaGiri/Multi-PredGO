@@ -14,13 +14,14 @@
 Multi-PredGO is a multi-modal protein function prediction model that uses the protein sequence, protein structure, and protein-protein interaction network-based information to predict GO-based protein function. As the protein function classes are dependent on each other, we have used a neuro-symbolic hierarchical classification model, which resembles the structure of Gene Ontology (GO), for effectively predicting the dependent protein functions.
 
 ## Installation:
-command 1 : conda create -n multi-predGO python=2.7
-command 2 : source activate multi-predGO
-command 3 : conda install -c bioconda diamond
-command 4 : pip install -r requirements.txt
-command 5 : pip install Flask
-command 6 : pip install -U flask-cors
-
+```bash
+conda create -n multi-predGO python=2.7
+source activate multi-predGO
+conda install -c bioconda diamond
+pip install -r requirements.txt
+pip install Flask
+pip install -U flask-cors
+```
 
 
 ## Run the code:
