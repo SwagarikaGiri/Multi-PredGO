@@ -1,4 +1,6 @@
+# Multi-PredGO
 
+## This is the readme file that contains the guidelines and information about the compilation of the code of the following paper
 
 **Paper Name:-** A Multi-modal Approach for Protein Function Prediction utilizing Protein Sequence and Structure
 
