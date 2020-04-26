@@ -32,9 +32,9 @@ df_goterm = pd.DataFrame(list_goterm)
 df_name = pd.DataFrame(list_goterm_name)
 for i in range(0,len(list_goterm)):
     ans = ans.append({'id': list_goterm[i], 'name': list_goterm_name[i],'index':list_goterm[i]},ignore_index=True)
-print ans.set_index('index')
+ans=ans.set_index('index')
+print ans
 # ans = pd.DataFrame(columns = ['id', 'name'])
 # res_df = pd.DataFrame({'id':df_goterm,'name':df_name})
 # print res_df
 ans.to_pickle('data/Goterm_Database.pkl')
-raw_input()

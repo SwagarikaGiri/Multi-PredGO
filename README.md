@@ -33,7 +33,7 @@ example:  http://0.0.0.0:5000/accession?accession_no=P31946, here P31946 is the 
 
 
 ## Contribution
-This work currently is under revision in a peer reviewed journal. For use the code or the preprocessed dataset, please open an issue first to discuss what you would like to do. Also you can contact to the corresponding author [Swagarika Jaharlal Giri](swagarika95@gmail.com) 
+This work currently is under revision in a peer reviewed journal. For use the code or the preprocessed dataset, please open an issue first to discuss what you would like to do. Also you can contact to the corresponding author [Swagarika Jaharlal Giri (swagarika95@gmail.com)](swagarika95@gmail.com) 
 
 
 
