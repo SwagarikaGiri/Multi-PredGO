@@ -7,7 +7,7 @@
  
 - **Authors:** Swagarika Jaharlal Giri<sup>1</sup>, Pratik Dutta<sup>1</sup>, Parth Halani<sup>2</sup> and Sriparna Saha<sup>1</sup>
 - **Affiliation:** <sup>1</sup>Department of Computer Science and Engineering, IIT Patna, India, <sup>2</sup>Depatment of Computer Science and Engineering, IIIT Guwahati, India
-- **Web-server:** http://www.iitp.ac.in/~pratik.pcs16/multipred.html
+- **Web-server:** http://www1.iitp.ac.in/~pratik.pcs16/multipred.html
 - **Status:** Under Minnor Revison in [IEEE Journal of Biomedical and Health Informatics(IEEE JBHI)](https://jbhi.embs.org/)
 
 ## Welcome to Multi-PredGO Application:
