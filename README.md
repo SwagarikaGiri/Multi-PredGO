@@ -24,23 +24,29 @@ pip install -U flask-cors
 ```
 
 ## File Organization
-|--- data   
+| ---- data   
 |    |--- models 
-|         | ---  model_bp.h5      <----- the  best saved model for Bilogical Process (Multi-predGO)
-|         | ---  model_cc.h5      <----- the  best saved model for Cellular Component (Multi-predGO)
-|         | ---  model_mf.h5      <----- the  best saved model for Moleculaar Function (Multi-predGO)
-|         | ---  mode_seq_bp.h5   <----- the  best saved model for Sequential Bilogical Process
-|         | ---  mode_seq_cc.h5   <----- the  best saved model for Sequential Cellular Component
-|         | ---  mode_seq_mf.h5   <----- the  best saved model for Sequential Molecular Function
+|         | ---  model_bp.h5      <----- the  best saved model for BP (Multi-predGO)
+|         | ---  model_cc.h5      <----- the  best saved model for CC(Multi-predGO)
+|         | ---  model_mf.h5      <----- the  best saved model for MF(Multi-predGO)
+|         | ---  mode_seq_bp.h5   <----- the  best saved model for Sequential BP
+|         | ---  mode_seq_cc.h5   <----- the  best saved model for Sequential CC
+|         | ---  mode_seq_mf.h5   <----- the  best saved model for Sequential MF
 |
 |
-|    |---        AccessionNumber_Structure_StatusFileWithAccessionIndex.pkl <-----  the file that has the status of accession no. status |               if the accession number's sequence , structure and PPIN feature is present in our database or not
-|    |---        AccessionNumberStatusFileWithAccessionIndex.pkl <----- the file that has the status of accession no. status 
-|               if the accession number's sequence , structure and PPIN feature is present in our database or not
-|    |---       bp.pkl   <--- The sequence of GO term/ Function sequence (Biological Process)
-|    |---       cc.pkl   <--- The sequence of GO term/ Function sequence (Cellular Component)
-|    |---       mf.pkl   <--- The sequence of GO term/ Function sequence (Molecular Function)
-|    |---       combined-multimodal-bp.zip   <--- (PLEASE UNZIP IT) this dataset contains the fasta sequence, PPIN Knowledge Graph based |               embedding, and Structural feature information for proteins participating in biological process.
+|    |---        AccessionNumber_Structure_StatusFileWithAccessionIndex.pkl <-  the file
+|                                                         that has the status 
+|                                                         of accession no. status 
+|              
+|    |---        AccessionNumberStatusFileWithAccessionIndex.pkl <- "the file that has the 
+|                                                           status of accession no. if the 
+|  accession number's sequence , structure and PPIN feature is present in our database or not.
+|
+|    |---       bp.pkl   <--- The sequence of GO term/ Function sequence (BP)
+|    |---       cc.pkl   <--- The sequence of GO term/ Function sequence (CC)
+|    |---       mf.pkl   <--- The sequence of GO term/ Function sequence (MF)
+|    |---       combined-multimodal-bp.zip   <--- (PLEASE UNZIP IT) this dataset contains the fasta sequence, PPIN Knowledge Graph based 
+|               embedding, and Structural feature information for proteins participating in biological process.
 |    |---       
 
 
