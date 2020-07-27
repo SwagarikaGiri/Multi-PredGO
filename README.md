@@ -24,7 +24,8 @@ pip install -U flask-cors
 ```
 
 ## File Organization
-| ---- data   
+```
+|---- data   
 |    |--- models 
 |         | ---  model_bp.h5      <----- the  best saved model for BP (Multi-predGO)
 |         | ---  model_cc.h5      <----- the  best saved model for CC(Multi-predGO)
@@ -45,9 +46,28 @@ pip install -U flask-cors
 |    |---       bp.pkl   <--- The sequence of GO term/ Function sequence (BP)
 |    |---       cc.pkl   <--- The sequence of GO term/ Function sequence (CC)
 |    |---       mf.pkl   <--- The sequence of GO term/ Function sequence (MF)
-|    |---       combined-multimodal-bp.zip   <--- (PLEASE UNZIP IT) this dataset contains the fasta sequence, PPIN Knowledge Graph based 
-|               embedding, and Structural feature information for proteins participating in biological process.
-|    |---       
+|
+|    |---       combined-multimodal-bp.pkl   <--- this dataset contains the fasta sequence,
+|                   PPIN Knowledge Graph based embedding, and Structural feature information for proteins
+|                   participating in biological process.
+|
+|    |---        combined-multimodal-mf.pkl   <--- this dataset contains the fasta sequence,
+|                   PPIN Knowledge Graph based embedding, and Structural feature information for proteins
+|                   participating in molecular function. 
+|
+|    |---       combined-multimodal-bp.pkl   <--- this dataset contains the fasta sequence,
+|                  PPIN Knowledge Graph based embedding, and Structural feature information for proteins
+|                  participating in biological process.
+|    |---         go.obo     <--- gene ontology 
+|    |---         go.txt     <--- gene ontology text file
+|    |---         interpro.xml <--- file used to make PPI interection network
+|
+|----  __init__.py  <--- initiate file
+|
+|----  app.py      <---- the main file that we need to run using command(python app.py)
+|                         port configuration and URL.
+|----  AUC_ROC_Curve.py
+```
 
 
 ## Run the code:
