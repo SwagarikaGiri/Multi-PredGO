@@ -11,9 +11,9 @@ import DataGenerationAPI
 @app.route('/accession')
 @cross_origin()
 def get_accession_number_status():
-    if 'accession_no' in request.args:
+    if 'accession_no' in request.args and 'ontology' in request.args:
         try:
-            data=DataGenerationAPI.analyze_accession_status(request.args['accession_no'])
+            data=DataGenerationAPI.analyze_accession_status(request.args['accession_no'],request.args['ontology'])
             message = {
                 'status': 200,
                     'message': 'OK',
@@ -30,7 +30,6 @@ def get_accession_number_status():
                         'data': {}
                         }
             resp = jsonify(message)
-            resp.status_code = 200
             print(resp)
             return resp
 
@@ -44,4 +43,4 @@ def get_accession_number_status():
 
 
 if __name__ == "__main__":
-    app.run(debug = True,host = "0.0.0.0", port = 5000)
+    app.run(debug = True,host = "172.16.26.35", port = 5003)

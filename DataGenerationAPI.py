@@ -52,27 +52,38 @@ def get_dataframe(baseCode, function,accession_number):
 
 
 #level 1 function 
-def load_train_test_data(accession_object):
+def load_train_test_data(accession_object,ontology):
+    RETURN_OBJECT={}
     accession_number=accession_object['accession']
-    bp=accession_object['bp']
-    cc=accession_object['cc']
-    mf=accession_object['mf']
+    ontology_flag=accession_object[ontology]
     if(accession_object['status'==True]):
-        if(bp):
+        if (ontology == "bp" and ontology_flag):
             testData=get_dataframe('multipred','bp',accession_number)
             if type(testData)!=str:
                 prediction_list = PredictionModel.main('bp',testData,'cpu:0')
                 RETURN_OBJECT['bp']=prediction_list
-        if(cc):
+        else:
+            if(ontology == "bp"):
+                return "Accession no does not have Biological Function"
+        if (ontology=="cc" and ontology_flag):
+
+
             testData=get_dataframe('multipred','cc',accession_number)
             if type(testData)!=str:
                 prediction_list=PredictionModel.main('cc',testData,'cpu:0')
                 RETURN_OBJECT['cc']=prediction_list
-        if(mf):
+        else:
+            if(ontology=="cc"):
+                return "Accession no does not have Cellular Component"
+        
+        if(ontology=="mf" and ontology_flag):
             testData=get_dataframe('multipred','mf',accession_number)
             if type(testData)!=str:
                 prediction_list=PredictionModel.main('mf',testData,'cpu:0')
                 RETURN_OBJECT['mf']=prediction_list
+        else:
+            if(ontology=="mf"):
+                return "Accession no does not have Molecular Function"
         return RETURN_OBJECT
 
     elif(accession_object['status'==False]):
@@ -80,14 +91,15 @@ def load_train_test_data(accession_object):
 
 
 #root function
-def analyze_accession_status(accession_number):
+def analyze_accession_status(accession_number,ontology):
     accession_number=str(accession_number)
+    ontology = str(ontology)
     try:
         df1 = pd.read_pickle(accession_status_file_path)
         accession_object = df1.loc[accession_number]
-        PAYLOAD = load_train_test_data(accession_object)
+        PAYLOAD = load_train_test_data(accession_object,ontology)
     except:
-        PAYLOAD={}
+        PAYLOAD={"Sorry errorenous data"}
     print PAYLOAD
     return PAYLOAD
     
