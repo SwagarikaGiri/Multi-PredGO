@@ -15,8 +15,8 @@ Multi-PredGO is a multi-modal protein function prediction model that uses the pr
 
 ## Installation:
 ```bash
-conda create -n multi-predGO python=2.7
-source activate multi-predGO
+conda create -n multi-pred python=2.7
+source activate multi-pred
 conda install -c bioconda diamond
 pip install -r requirements.txt
 pip install Flask
@@ -64,13 +64,60 @@ pip install -U flask-cors
 |
 |----  __init__.py  <--- initiate file
 |
-|----  app.py      <---- the main file that we need to run using command(python app.py)
+|----  app.py      <---- the main file that we need to run using command  (python app.py)
 |                         port configuration and URL.
-|----  AUC_ROC_Curve.py
+|
+|----  plots-folder  <----  plot the roc curve for the following predictions
+|
+|----  DataGenerationAPI.py    <---- It is the file that is called by app.py handles creation of json object after concatenating all the results
+|----  ForTestMultiPredModelAPI.py  <---- It is the file where model is loaded and then results are calculated 
+|----  giri_inga_formatted   <---- prediction of functions(GO terms) after applying INGA model
+|----  inga-predictions-bp.csv  <---- inga-prediction file for Biological Process
+|----  inga-predictions-cc.csv  <---- inga-prediction file for Cellular Component
+|----  inga-predictions-mf.csv  <---- inga-prediction file for Molecular Function
+|----  pred_bp.pkl  <---- Multi-PredGO prediction(BP)
+|----  pred_mf.pkl  <---- Multi-PredGO prediction(MF)
+|----  pred_cc.pkl  <---- Multi-PredGO prediction(CC)
+|----  utils.py    <---- has all utils functions of creating ontology etc
+|----  List_Accession_No.txt   <----- contains all the accession no for which we were able to get structure, sequence and PPIN information and 
+|                                     the  features are stored.
+|
+|
 ```
 
 
 ## Run the code:
+
+```
+## Run as a API in linux/ubuntu/macOS/Windows
+
+************************************** Approach 1 : Run as a API in linux/ubuntu/macOS/Windows ***********************************************
+______________________________________________________________________________________________________________________
+Step 1: Installation
+______________________________________________________________________________________________________________________
+conda create -n multi-predGO python=2.7
+source activate multi-predGO
+conda install -c bioconda diamond
+pip install -r requirements.txt
+pip install Flask
+pip install -U flask-cors
+____________________________________________________________________________________________________________________
+Step 2 : Run the application
+
+python app.py   <--------- Runs the application on  "http://0.0.0.0:5000/"
+
+____________________________________________________________________________________________________________________
+Step 3 : Get Results for a single protein (You can choose any accession no from List_Accession_No.txt)
+
+## using curl
+http://0.0.0.0:5000/accession?accession_no={accession_no}&ontology={ontology}
+ex: http://0.0.0.0:5000/accession?accession_no=P31946&ontology=cc
+
+
+
+
+
+```
 1) To run the code as application: 
 Run app.py using command python app.py
 app.py will run ur application  in url "http://0.0.0.0:5000/", you can change the host and the part address in app.py

@@ -19,6 +19,8 @@ multipred='data/combined-multimodal-'
 accession_status_file='AccessionNumber_Structure_StatusFileWithAccessionIndex.pkl'
 accession_status_file_path=root+accession_status_file
 df1 = pd.read_pickle(accession_status_file_path)
+accession=""
+ontology=""
 
 Accesion_No_IndexDict = dict()
 global RETURN_OBJECT
@@ -56,7 +58,8 @@ def load_train_test_data(accession_object,ontology):
     RETURN_OBJECT={}
     accession_number=accession_object['accession']
     ontology_flag=accession_object[ontology]
-    if(accession_object['status'==True]):
+    if(accession_object['status']==True):
+    
         if (ontology == "bp" and ontology_flag):
             testData=get_dataframe('multipred','bp',accession_number)
             if type(testData)!=str:
@@ -66,8 +69,6 @@ def load_train_test_data(accession_object,ontology):
             if(ontology == "bp"):
                 return "Accession no does not have Biological Function"
         if (ontology=="cc" and ontology_flag):
-
-
             testData=get_dataframe('multipred','cc',accession_number)
             if type(testData)!=str:
                 prediction_list=PredictionModel.main('cc',testData,'cpu:0')
@@ -86,8 +87,11 @@ def load_train_test_data(accession_object,ontology):
                 return "Accession no does not have Molecular Function"
         return RETURN_OBJECT
 
-    elif(accession_object['status'==False]):
-        return "Sorry Accession No Cannot be Accepted due to computational limitations2"
+    elif(accession_object['status']==False):
+        return "This accession no's  structural information is not present in our database"
+    else:
+        return "This accession no's sequence, structure, PPIN information is not present in our database"
+
 
 
 #root function
@@ -97,15 +101,20 @@ def analyze_accession_status(accession_number,ontology):
     try:
         df1 = pd.read_pickle(accession_status_file_path)
         accession_object = df1.loc[accession_number]
+        print("Status of Accession No in following Ontologies 1 denote aceesion no has functionality in following ontology")
+        print(accession_object)
         PAYLOAD = load_train_test_data(accession_object,ontology)
     except:
         PAYLOAD={"Sorry errorenous data"}
-    print PAYLOAD
     return PAYLOAD
     
 
 
 if __name__=='__main__':
-    message=analyze_accession_status('P31946')
+    accession=raw_input("Please enter the accession no")
+    ontology=raw_input("Please enter the ontology")
+    message=analyze_accession_status(accession,ontology)
+    print(message)
+    # return message
     
     

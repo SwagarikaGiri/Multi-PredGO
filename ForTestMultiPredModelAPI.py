@@ -82,8 +82,6 @@ REPLEN = 256
 ind = 0
 
 def main(function, test_df,device):
-    print test_df
-    print " check if it is here"
     org = None 
     param = 0 
     filename = 'ResultSequenceStructPPI.txt'
@@ -393,14 +391,13 @@ def model(params,test_df, batch_size=b_size, nb_epoch=n_epoch, is_train=True):
     for ele in test_labels[0]:
         if ele==1:
             counter2=counter2+1
-    print counter2
+
     counter=0
     for ele in predictions[0]:
         if ele ==1:
             counter=counter+1
-    print counter
+ 
     prediction_list=find_the_predicted_go_term(predictions,functions)
-    print prediction_list
     return prediction_list
 
 

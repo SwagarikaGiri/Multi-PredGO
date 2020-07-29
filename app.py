@@ -43,4 +43,4 @@ def get_accession_number_status():
 
 
 if __name__ == "__main__":
-    app.run(debug = True,host = "172.16.26.35", port = 5003)
+    app.run(debug = True,host = "0.0.0.0", port = 5000)
