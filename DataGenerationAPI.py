@@ -111,8 +111,8 @@ def analyze_accession_status(accession_number,ontology):
 
 
 if __name__=='__main__':
-    accession=raw_input("Please enter the accession no")
-    ontology=raw_input("Please enter the ontology")
+    accession=raw_input("Please enter the accession no \t")
+    ontology=raw_input("Please enter the ontology \t")
     message=analyze_accession_status(accession,ontology)
     print(message)
     # return message

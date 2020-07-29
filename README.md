@@ -91,38 +91,87 @@ pip install -U flask-cors
 ```
 ## Run as a API in linux/ubuntu/macOS/Windows
 
-************************************** Approach 1 : Run as a API in linux/ubuntu/macOS/Windows ***********************************************
-______________________________________________________________________________________________________________________
+****** Approach 1 : Run as a API in linux/ubuntu/macOS/Windows ***************************************
+______________________________________________________________________________________________________
 Step 1: Installation
-______________________________________________________________________________________________________________________
+______________________________________________________________________________________________________
 conda create -n multi-predGO python=2.7
 source activate multi-predGO
 conda install -c bioconda diamond
 pip install -r requirements.txt
 pip install Flask
 pip install -U flask-cors
-____________________________________________________________________________________________________________________
+_______________________________________________________________________________________________________
 Step 2 : Run the application
 
 python app.py   <--------- Runs the application on  "http://0.0.0.0:5000/"
 
-____________________________________________________________________________________________________________________
+_______________________________________________________________________________________________________
 Step 3 : Get Results for a single protein (You can choose any accession no from List_Accession_No.txt)
 
-## using curl
+## using any Web browser 
+Type the  url 
 http://0.0.0.0:5000/accession?accession_no={accession_no}&ontology={ontology}
 ex: http://0.0.0.0:5000/accession?accession_no=P31946&ontology=cc
+
+
+______________________________________________________________________________________________________
+
+## Get Results through a script
+
+************************ Approach 2 : Run as script in linux/ubuntu/macOS/Windows ********************
+
+______________________________________________________________________________________________________
+Step 1: Installation
+______________________________________________________________________________________________________
+conda create -n multi-predGO python=2.7
+source activate multi-predGO
+conda install -c bioconda diamond
+pip install -r requirements.txt
+pip install Flask
+pip install -U flask-cors
+______________________________________________________________________________________________________
+
+step 2:
+ > python DataGenerationAPI.py       <------ run this DataGenerationAPI script
+ > Please enter the accession no P31946. <----- Can use any accession no corresponding to protein
+ > Please enter the ontology bp.  <------ Desired Ontology for which results are to be received
+
+
+_____________________________________________________________________________________________________
+ 
+ ## Train Model and Test the model
+ ************************ Approach 3 : Run as script in linux/ubuntu/macOS/Windows(Train/Test) *********
+ ______________________________________________________________________________________________________
+Step 1: Installation
+______________________________________________________________________________________________________
+conda create -n multi-predGO python=2.7
+source activate multi-predGO
+conda install -c bioconda diamond
+pip install -r requirements.txt
+
+______________________________________________________________________________________________________
+
+step 2: Run the script
+
+python MultiPredGO.py.  <-----  script that takes protein sequence, structure PPIN based knowledge
+                                  graph embedding to predict the protein function(GO term).
+                                  uses data/multimodaltrain-{ontology}.pkl for training 
+                                  and data/multimodaltest-{ontology}.pkl for testing
+
+
+_____________________________________________________________________________________________________
+
+
+
+
 
 
 
 
 
 ```
-1) To run the code as application: 
-Run app.py using command python app.py
-app.py will run ur application  in url "http://0.0.0.0:5000/", you can change the host and the part address in app.py
-you can get the predictions uisng  http://0.0.0.0:5000/accession?accession_no={accession_no}
-example:  http://0.0.0.0:5000/accession?accession_no=P31946, here P31946 is the accession no corresponding which we want a prediction
+
 
 
 ## Contribution
