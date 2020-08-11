@@ -2,7 +2,7 @@
 
 ## This is the readme file that contains the guidelines and information about the compilation of the code of the following paper
 
-**Paper Name:-** MultiPredGO: Deep Multi-Modal Protein Function Prediction by Integrating Protein Structure, Sequence, and Interaction Information
+**Paper Name:-** MultiPredGO: Deep Multi-Modal Protein Function Prediction by Amalgamating Protein Structure, Sequence, and Interaction Information
 
 - **Authors:** Swagarika Jaharlal Giri<sup>1</sup>, Pratik Dutta<sup>1</sup>, Parth Halani<sup>2</sup> and Sriparna Saha<sup>1</sup>
 - **Affiliation:** <sup>1</sup>Department of Computer Science and Engineering, IIT Patna, India, <sup>2</sup>Depatment of Computer Science and Engineering, IIIT Guwahati, India
@@ -167,10 +167,6 @@ python MultiPredGO.py.  <-----  script that takes protein sequence, structure PP
 
 
 _____________________________________________________________________________________________________
-
-
-
-
 
 
 
